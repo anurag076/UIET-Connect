@@ -1,0 +1,250 @@
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Page</title>
+
+    <link rel="stylesheet" href="./css/faculty.css">
+    <style>
+        
+        .faculty-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .faculty-box img {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .faculty-box p {
+            margin: 0;
+        }
+
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <%- include('header') %>
+
+<div class="container">
+    <h1>Faculty Members</h1>
+
+    <!-- Director Box -->
+    <div class="faculty-box" id="directorBox">
+        <img src="../images/Brishti.png" alt="Director Photo">
+        <div class="faculty-info">
+            <h2>Director</h2>
+            <p>brishtimitra@csjmu.ac.in
+            </p>
+            <button class="button" onclick="toggleMessage('director')">Detail</button>
+        </div>
+        <div class="faculty-message" id="directorMessage">
+            <p>   <h4>Associate Professor , Chemical Engineering <br/>
+                Research Interest : Reaction Engineering and Catalysis</h4></p>
+        </div>
+    </div>
+
+    <!-- HOD Box -->
+    <div class="faculty-box" id="hodBox">
+        <img src="../images/Vishalsir.jpg" alt="HOD Photo">
+        <div class="faculty-info">
+            <h2>Head of  ECE Department</h2>
+            <p>9369601480</p>
+            <button class="button" onclick="toggleMessage('hod')">Detail</button>
+        </div>
+        <div class="faculty-message" id="hodMessage">
+            <h5>M.Tech., Ph.D.
+            Assistant Professor, Electronics And Communications <br>
+            Research Interest : Computer Arithmetic & Digital Signal Processing
+            </h5> 
+            <p>Ph.D. from Uttar Pradesh Technical University (UPTU), Lucknow <br>
+            M.Tech. from Harcourt Butler Technical University (HBTU), Kanpur
+            </p>    
+         </div>
+    </div>
+
+
+    <button class="button" onclick="toggleFaculty()">Show Other Faculty</button>
+
+    
+    <div class="faculty-container other-faculty" id="otherFaculty">
+        <h2>Other Faculty Members</h2>
+        <div class="faculty-box">
+            <img src="../images/faculty/Parul.png" alt="Faculty 1 Photo">
+            <div class="faculty-info">
+                <h2>Er. Parul Awasthi</h2> 
+                <h5>Assistant Professor , Electronics And Communications <br>
+                    Research Interest : Wireless Communication, Networking</h5>
+                  
+                    <p>Contact: 2323yiy23</p>
+            </div>
+        </div>
+        <div class="faculty-box">
+            <img src="../images/faculty/Ajeet.png" alt="Faculty 2 Photo">
+            <div class="faculty-info">
+                <h2>Er. AJEET KUMAR SRIVASTVA</h2>
+                <h5>
+                    Assistant Professor, Electronics And Communications <br>
+                    Research Interest : Digital Signal Processing, VLSI Design
+                </h5>
+                <p>Contact: ajeetsrivastava@csjmu.ac.in
+                </p>
+            </div>
+        </div>
+            <div class="faculty-box">
+                <img src="../images/faculty/Niraj.png" alt="Faculty 3 Photo">
+                <div class="faculty-info">
+                    <h2>Er. NIRAJ KUMAR
+                    </h2>
+                    <h5>
+                        Associate Professor, Electronics And Communications
+                    </h5>
+                    <p>Contact: nirajkumar@csjmu.ac.in
+                    </p>
+                </div>
+        </div>
+        <div class="faculty-box">
+            <img src="../images/faculty/Anand.png" alt="Faculty  4 Photo">
+            <div class="faculty-info">
+                <h2>Er. ANAND KUMAR GUPTA
+                </h2>
+                <h5>
+                    Assistant Professor, Electronics And Communications
+                </h5>
+                <p>Contact: anandgupta@csjmu.ac.in
+                </p>
+            </div>
+    </div>
+    <div class="faculty-box">
+        <img src="../images/faculty/Amit.png" alt="Faculty 5 Photo">
+        <div class="faculty-info">
+            <h2>Er. Amit Kumar Katiyar
+            </h2>
+            <h5>
+                Assistant Professor, Electronics And Communications
+            </h5>
+            <p>Contact: amitkatiyar@csjmu.ac.in
+            </p>
+        </div>
+</div>
+<div class="faculty-box">
+    <img src="../images/faculty/Preeti.png" alt="Faculty 6 Photo">
+    <div class="faculty-info">
+        <h2>Er. PREETI SINGH
+        </h2>
+        <h5>
+            Assistant Professor, Electronics And Communications
+        </h5>
+        <p>Contact: preetisingh@csjmu.ac.in
+        </p>
+    </div>
+</div>
+<div class="faculty-box">
+    <img src="../images/faculty/Ajay.png" alt="Faculty 7 Photo">
+    <div class="faculty-info">
+        <h2>Dr. Ajay Tiwari
+        </h2>
+        <h5>
+            Assistant Professor, Electronics And Communications
+        </h5>
+        <p>Contact: ajaytiwari@csjmu.ac.in
+        </p>
+    </div>
+</div>
+<div class="faculty-box">
+    <img src="../images/faculty/Somesh.png" alt="Faculty 8 Photo">
+    <div class="faculty-info">
+        <h2>Er. Somesh Kumar Malhotra
+        </h2>
+        <h5>
+            Assistant Professor, Electronics And Communications
+        </h5>
+        <p>Contact: somesh@csjmu.ac.in
+        </p>
+    </div>
+</div>
+<div class="faculty-box">
+    <img src="../images/faculty/atul.png" alt="Faculty 6 Photo">
+    <div class="faculty-info">
+        <h2>Er. Atul Kumar Agnihotri
+        </h2>
+        <h5>
+            Assistant Professor, Electronics And Communications <br>
+Research Interest : Digital Signal Processing, Wireless Communication
+        </h5>
+        <p>Contact: atulagnitotri@csjmu.ac.in
+        </p>
+    </div>
+</div>
+<div class="faculty-box">
+    <img src="../images/faculty/ompal.png" alt="Faculty 11 Photo">
+    <div class="faculty-info">
+        <h2>Er. Ompal
+        </h2>
+        <h5>
+            Assistant Professor, Electronics And Communications
+        </h5>
+        <p>Contact: ompal@csjmu.ac.in
+        </p>
+    </div>
+</div>
+        <!-- Add more faculty boxes as needed -->
+    </div>
+</div>
+
+<script>
+    function toggleMessage(person) {
+        var message = document.getElementById(person + "Message");
+        message.classList.toggle("show-message");
+    }
+
+    function toggleFaculty() {
+        var faculty = document.getElementById("otherFaculty");
+        faculty.classList.toggle("show-faculty");
+    }
+</script>
+
+
+</body>
+</html>

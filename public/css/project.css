@@ -1,0 +1,16 @@
+.dept-alumi{
+    display: relative;
+    text-align: center; 
+    width: 90%; 
+    border-radius: 50px; 
+    overflow: hidden;
+}
+.dept-alumi .dept-alumi-image{
+    display: absolute;
+    width: 100%;
+
+}
+.dept-alumi .dept-alumi-image img{
+    width: 100%;
+    display: absolute;
+}
